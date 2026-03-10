@@ -2,748 +2,361 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conceptual Framework: Ideal Genomic Data Sharing Process</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Lora:wght@400;600;700&display=swap');
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
-    background: #f8f6f1;
+    background: #edeae3;
     font-family: 'Source Sans 3', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 40px 20px;
+    padding: 40px 20px 60px;
   }
 
   .page {
-    background: #ffffff;
-    width: 900px;
-    padding: 48px 56px;
-    box-shadow: 0 4px 40px rgba(0,0,0,0.10);
-    border: 1px solid #e0dbd0;
+    background: #fff;
+    width: 960px;
+    padding: 44px 52px 50px;
+    box-shadow: 0 6px 48px rgba(0,0,0,0.13);
   }
 
-  .figure-title {
+  .fig-title {
     font-family: 'Lora', serif;
-    font-size: 13.5px;
-    font-weight: 400;
-    color: #2c2c2c;
-    margin-bottom: 32px;
-    letter-spacing: 0.01em;
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 28px;
   }
 
-  /* ── FRAMEWORK CONTAINER ── */
-  .framework {
-    position: relative;
-    width: 100%;
-  }
-
-  /* ── THEORY PILLARS (top) ── */
-  .theory-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 0px;
-  }
-
-  .theory-box {
-    flex: 1;
-    border: 2.5px solid #1a3a5c;
-    background: #1a3a5c;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 12px;
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    position: relative;
-  }
-
-  .theory-box .theory-sub {
+  /* ─── SVG diagram ─── */
+  svg {
     display: block;
-    font-weight: 300;
-    font-size: 9.5px;
-    letter-spacing: 0.04em;
-    margin-top: 3px;
-    color: #b8cfe0;
-    text-transform: none;
-  }
-
-  /* Downward arrows from theory boxes */
-  .theory-arrow {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 calc(16.66% / 2);
-    height: 28px;
-    align-items: flex-end;
-    position: relative;
-  }
-
-  /* ── MIDDLE SECTION ── */
-  .middle-section {
-    display: grid;
-    grid-template-columns: 140px 1fr 140px;
-    grid-template-rows: auto auto auto;
-    gap: 0;
-    align-items: center;
-    position: relative;
-  }
-
-  /* Left column */
-  .left-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding-right: 8px;
-  }
-
-  /* Right column */
-  .right-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding-left: 8px;
-  }
-
-  /* Center column */
-  .center-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 16px;
-    position: relative;
-  }
-
-  /* Generic node box */
-  .node {
-    border: 1.8px solid #2c2c2c;
-    background: #ffffff;
-    padding: 8px 14px;
-    font-size: 11px;
-    font-weight: 600;
-    text-align: center;
-    color: #1a1a1a;
-    line-height: 1.35;
     width: 100%;
-    max-width: 130px;
-    position: relative;
-  }
-
-  .node-wide {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .node ul {
-    font-weight: 400;
-    font-size: 10px;
-    list-style: disc;
-    padding-left: 14px;
-    margin-top: 4px;
-    text-align: left;
-    color: #333;
-    line-height: 1.5;
-  }
-
-  /* Accent nodes */
-  .node-accent {
-    border-color: #1a3a5c;
-    border-width: 2px;
-  }
-
-  .node-new {
-    border-color: #b5451b;
-    border-width: 2px;
-    background: #fff8f5;
-  }
-
-  .node-new .node-label {
-    color: #b5451b;
-  }
-
-  .node-outcome {
-    border-color: #1a3a5c;
-    border-width: 2.5px;
-    background: #f0f5fa;
-  }
-
-  .node-levels {
-    border: 2.5px solid #1a1a1a;
-    background: #f5f5f0;
-    padding: 9px 16px;
-    text-align: center;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    width: 100%;
-    margin-top: 12px;
-  }
-
-  .node-label {
-    font-weight: 700;
-    font-size: 11px;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  /* ── ARROWS ── */
-  /* SVG overlay for connecting arrows */
-  .svg-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
     overflow: visible;
   }
 
-  /* ── BOTTOM ── */
-  .bottom-section {
-    margin-top: 12px;
-  }
-
-  /* ── Connectors using CSS ── */
-  .arrow-down {
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    color: #2c2c2c;
-    line-height: 1;
-    margin: 2px 0;
-  }
-
-  /* Tag for "NEW" elements */
-  .new-tag {
-    display: inline-block;
-    background: #b5451b;
-    color: white;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 1px 5px;
-    text-transform: uppercase;
-    margin-left: 5px;
-    vertical-align: middle;
-  }
-
-  /* Theory bracket annotations */
-  .theory-bracket {
-    font-size: 9px;
-    color: #888;
-    font-style: italic;
-    margin-top: 2px;
-    font-weight: 400;
-  }
-
-  /* Main diagram wrapper */
-  .diagram-wrapper {
-    position: relative;
-  }
-
-  /* Layout rows */
-  .row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 6px;
-    position: relative;
-  }
-
-  .row-spaced {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    position: relative;
-  }
-
-  .col-left { width: 140px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-  .col-center { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 12px; }
-  .col-right { width: 150px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-
-  /* ─── SVG canvas ─── */
-  #arrow-svg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: visible;
-    z-index: 10;
-  }
-
-  .diagram-inner {
-    position: relative;
-  }
-
-  /* Legend */
+  /* legend */
   .legend {
-    margin-top: 24px;
-    border-top: 1px solid #ddd;
+    margin-top: 22px;
+    border-top: 1px solid #ccc;
     padding-top: 14px;
     display: flex;
-    gap: 24px;
     flex-wrap: wrap;
-  }
-
-  .legend-item {
-    display: flex;
+    gap: 18px 28px;
     align-items: center;
-    gap: 7px;
-    font-size: 10px;
-    color: #444;
   }
-
-  .legend-box {
-    width: 18px;
-    height: 14px;
-    border: 1.8px solid #2c2c2c;
-  }
-
-  .legend-box-new {
-    border-color: #b5451b;
-    background: #fff8f5;
-  }
-
-  .legend-box-theory {
-    background: #1a3a5c;
-    border-color: #1a3a5c;
-  }
-
-  .legend-box-outcome {
-    background: #f0f5fa;
-    border-color: #1a3a5c;
-  }
-
-  /* ─── compact diagram using flexbox/grid ─── */
-
-  .diagram-grid {
-    display: grid;
-    grid-template-areas:
-      "theories theories theories"
-      "t-arrows t-arrows t-arrows"
-      "attitudes attitudes attitudes"
-      "main main main"
-      "guidelines guidelines guidelines"
-      "levels levels levels";
-    row-gap: 0;
-  }
-
-  .g-theories { grid-area: theories; }
-  .g-tarrows  { grid-area: t-arrows; }
-  .g-attitudes { grid-area: attitudes; }
-  .g-main     { grid-area: main; }
-  .g-guidelines { grid-area: guidelines; }
-  .g-levels   { grid-area: levels; }
-
-  /* Theories row */
-  .theories-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 4px;
-  }
-
-  .th-box {
-    flex: 1;
-    background: #1a3a5c;
-    color: #fff;
-    padding: 9px 10px;
-    text-align: center;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    border: 2px solid #1a3a5c;
-  }
-
-  .th-box small {
-    display: block;
-    font-weight: 300;
-    font-size: 9px;
-    color: #aac4d8;
-    margin-top: 3px;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    font-style: italic;
-  }
-
-  /* Three-column theory arrows pointing down to framework parts */
-  .tarrow-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 4px;
-    height: 22px;
-  }
-
-  .tarrow-cell {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    font-size: 14px;
-    color: #1a3a5c;
-    font-weight: 700;
-  }
-
-  /* attitudes row */
-  .attitudes-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 4px;
-  }
-
-  .node-box {
-    border: 1.8px solid #2c2c2c;
-    background: #fff;
-    padding: 7px 18px;
-    font-size: 11px;
-    font-weight: 600;
-    text-align: center;
-    color: #1a1a1a;
-    min-width: 100px;
-  }
-
-  .node-box.new {
-    border-color: #b5451b;
-    border-width: 2px;
-    background: #fff8f5;
-  }
-
-  .node-box.outcome-box {
-    border-color: #1a3a5c;
-    border-width: 2px;
-    background: #f0f5fa;
-    text-align: left;
-    padding: 10px 14px;
-  }
-
-  .node-box ul {
-    font-weight: 400;
-    font-size: 10px;
-    list-style: disc;
-    padding-left: 14px;
-    margin-top: 4px;
-    line-height: 1.6;
-    color: #333;
-  }
-
-  /* MAIN ROW */
-  .main-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-    gap: 8px;
-    position: relative;
-  }
-
-  .main-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 136px;
-    flex-shrink: 0;
-  }
-
-  .main-center {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .main-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 150px;
-    flex-shrink: 0;
-  }
-
-  .node-box.stakeholders {
-    border-color: #1a3a5c;
-    border-width: 2px;
-    text-align: left;
-    padding: 9px 13px;
-    width: 100%;
-    max-width: 220px;
-  }
-
-  .node-box.power {
-    border-color: #5c4a1a;
-    border-width: 2px;
-    background: #fdf8f0;
-    text-align: left;
-    padding: 9px 13px;
-    width: 100%;
-    max-width: 220px;
-  }
-
-  .power-label { color: #5c4a1a; }
-
-  .small-label {
-    font-size: 9.5px;
-    font-weight: 400;
-    color: #444;
-    line-height: 1.5;
-  }
-
-  .arrow-small { font-size: 12px; color: #555; line-height: 1; }
-
-  /* Guidelines box */
-  .guidelines-row {
-    display: flex;
-    justify-content: center;
-    margin: 4px 0;
-  }
-
-  .node-box.guidelines-box {
-    text-align: center;
-    padding: 8px 20px;
-    min-width: 360px;
-  }
-
-  /* Levels bar */
-  .levels-bar {
-    border: 2px solid #1a1a1a;
-    background: #f0f0eb;
-    text-align: center;
-    padding: 9px 16px;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-top: 6px;
-  }
-
-  /* NEW badge */
-  .badge-new {
-    display: inline-block;
-    background: #b5451b;
-    color: #fff;
-    font-size: 7.5px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 1px 5px;
-    text-transform: uppercase;
-    vertical-align: middle;
-    margin-left: 4px;
-    position: relative;
-    top: -1px;
-  }
-
-  .theory-target {
-    font-size: 8.5px;
-    color: #aac4d8;
-    font-style: italic;
-    font-weight: 300;
-    margin-top: 1px;
-  }
-
-  /* Center arrows */
-  .center-arrows {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    font-size: 13px;
-    color: #555;
-    margin: 2px 0;
-  }
-
-  hr.divider {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 20px 0 14px;
-  }
+  .li { display:flex; align-items:center; gap:7px; font-size:10.5px; color:#333; }
+  .lb { width:22px; height:14px; }
 </style>
 </head>
 <body>
 <div class="page">
-  <p class="figure-title"><strong>Figure 1:</strong> Conceptual Framework: Ideal Genomic Data Sharing Process <em>(Revised)</em></p>
+  <p class="fig-title"><strong>Figure 1:</strong> Conceptual Framework: Ideal Genomic Data Sharing Process <em>(Revised)</em></p>
 
-  <div class="diagram-inner">
+  <svg id="diagram" viewBox="0 0 856 900" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3', sans-serif">
 
-    <!-- ① THREE THEORY PILLARS -->
-    <div class="theories-row">
-      <div class="th-box">
-        General Systems Theory
-        <small>Operational engine: structural flow,<br>feedback loops, multi-level architecture</small>
-        <div class="theory-target">→ Attitudes · Awareness · Practices · Stakeholders</div>
-      </div>
-      <div class="th-box">
-        Principlism
-        <small>Ethical guardrails: autonomy,<br>beneficence, non-maleficence</small>
-        <div class="theory-target">→ Training &amp; Capacity Building · REC</div>
-      </div>
-      <div class="th-box" style="border-color:#5c4a1a; background:#5c4a1a;">
-        Distributive Justice
-        <small>Power &amp; equity lens: LMIC vs. HIC,<br>data ownership, commercialisation</small>
-        <div class="theory-target" style="color:#d4b896;">→ Power Dynamics · Outcomes</div>
-      </div>
-    </div>
+    <defs>
+      <!-- Arrow markers — large, bold -->
+      <marker id="arr-dark" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#2c2c2c"/>
+      </marker>
+      <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#1a3a5c"/>
+      </marker>
+      <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#7a3010"/>
+      </marker>
+      <marker id="arr-brown" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#5c4a1a"/>
+      </marker>
+      <marker id="arr-dark-rev" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+        <polygon points="10 0, 0 3.5, 10 7" fill="#2c2c2c"/>
+      </marker>
+      <marker id="arr-dark-start" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+        <polygon points="10 0, 0 3.5, 10 7" fill="#2c2c2c"/>
+      </marker>
+      <!-- Double-headed: use both start+end markers -->
+      <marker id="arr-both-end" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#2c2c2c"/>
+      </marker>
+      <marker id="arr-both-start" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto-start-reverse">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#2c2c2c"/>
+      </marker>
+    </defs>
 
-    <!-- theory → attitudes arrow -->
-    <div class="tarrow-row">
-      <div class="tarrow-cell">↓</div>
-      <div class="tarrow-cell" style="color:#1a3a5c;">↓</div>
-      <div class="tarrow-cell" style="color:#5c4a1a;">↓</div>
-    </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- BACKGROUND THEORY ZONES (colour washes)                -->
+    <!-- ═══════════════════════════════════════════════════════ -->
 
-    <!-- ② ATTITUDES (central top) -->
-    <div class="attitudes-row">
-      <div class="node-box" style="min-width:160px;">Attitudes</div>
-    </div>
+    <!-- GST zone: left column + attitudes + stakeholders (light blue wash) -->
+    <rect x="2" y="2" width="852" height="860" rx="6" fill="#f7f9fc" stroke="#d0dce8" stroke-width="1.5"/>
 
-    <div style="display:flex; justify-content:center; margin:2px 0; font-size:13px; color:#555;">↓</div>
+    <!-- Principlism zone: left band -->
+    <rect x="10" y="170" width="165" height="480" rx="4" fill="#e8f0f8" stroke="#1a3a5c" stroke-width="1" stroke-dasharray="5,3" opacity="0.6"/>
+    <text x="93" y="162" text-anchor="middle" font-size="8.5" fill="#1a3a5c" font-style="italic" opacity="0.9">Principlism zone</text>
 
-    <!-- ③ MAIN ROW -->
-    <div class="main-row">
+    <!-- Distributive Justice zone: right band -->
+    <rect x="681" y="170" width="165" height="480" rx="4" fill="#fdf5e8" stroke="#5c4a1a" stroke-width="1" stroke-dasharray="5,3" opacity="0.6"/>
+    <text x="763" y="162" text-anchor="middle" font-size="8.5" fill="#5c4a1a" font-style="italic" opacity="0.9">Distributive Justice zone</text>
 
-      <!-- LEFT COLUMN -->
-      <div class="main-left">
-        <div class="node-box" style="width:100%; text-align:center;">Awareness
-          <div class="small-label">of guidelines,<br>policies &amp; platforms</div>
-        </div>
+    <!-- GST zone label -->
+    <text x="428" y="162" text-anchor="middle" font-size="8.5" fill="#555" font-style="italic" opacity="0.9">General Systems Theory zone</text>
 
-        <div class="arrow-small" style="align-self:center;">↕</div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ROW 1: THREE THEORY PILLARS  y=18                     -->
+    <!-- ═══════════════════════════════════════════════════════ -->
 
-        <div class="node-box" style="width:100%; text-align:center;">Training &amp;<br>Capacity Building
-          <div class="small-label">Researcher negotiation;<br>REC genomic literacy;<br>regulator oversight</div>
-        </div>
+    <!-- GST box -->
+    <rect x="10" y="18" width="260" height="66" rx="3" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="2"/>
+    <text x="140" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.5">GENERAL SYSTEMS THEORY</text>
+    <text x="140" y="52" text-anchor="middle" font-size="9.5" fill="#aac4d8">Structural flow · Feedback loops</text>
+    <text x="140" y="64" text-anchor="middle" font-size="9.5" fill="#aac4d8">Multi-level architecture</text>
+    <text x="140" y="78" text-anchor="middle" font-size="8" fill="#7fafc8" font-style="italic">→ Attitudes · Awareness · Practices · Stakeholders</text>
 
-        <!-- NEW: Individual Factors -->
-        <div class="node-box new" style="width:100%; text-align:center;">
-          <span style="color:#b5451b; font-weight:700; font-size:11px;">Individual Factors <span class="badge-new">New</span></span>
-          <div class="small-label" style="margin-top:3px;">Gender · Age<br>Values · Family<br>(genetic/molecular)</div>
-        </div>
-      </div>
+    <!-- Principlism box -->
+    <rect x="298" y="18" width="260" height="66" rx="3" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="2"/>
+    <text x="428" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.5">PRINCIPLISM</text>
+    <text x="428" y="52" text-anchor="middle" font-size="9.5" fill="#aac4d8">Autonomy · Beneficence</text>
+    <text x="428" y="64" text-anchor="middle" font-size="9.5" fill="#aac4d8">Non-maleficence · Justice</text>
+    <text x="428" y="78" text-anchor="middle" font-size="8" fill="#7fafc8" font-style="italic">→ Training &amp; Capacity Building · Community Engagement</text>
 
-      <!-- CENTER COLUMN -->
-      <div class="main-center">
+    <!-- Distributive Justice box -->
+    <rect x="586" y="18" width="260" height="66" rx="3" fill="#5c4a1a" stroke="#5c4a1a" stroke-width="2"/>
+    <text x="716" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.5">DISTRIBUTIVE JUSTICE</text>
+    <text x="716" y="52" text-anchor="middle" font-size="9.5" fill="#d4b896">Power &amp; equity lens</text>
+    <text x="716" y="64" text-anchor="middle" font-size="9.5" fill="#d4b896">LMIC vs HIC · Data ownership</text>
+    <text x="716" y="78" text-anchor="middle" font-size="8" fill="#b8966a" font-style="italic">→ Power Dynamics · Outcomes (Equity, Justice)</text>
 
-        <!-- NEW: Relational Factors -->
-        <div class="node-box new" style="max-width:230px; width:100%; text-align:center;">
-          <span style="color:#b5451b; font-weight:700;">Relational Factors <span class="badge-new">New</span></span>
-          <div class="small-label" style="margin-top:3px;">Trust · Collaboration · Communication<br>
-          <span style="font-style:italic; color:#888;">(incl. lessons from Henrietta Lacks:<br>community &amp; family impact)</span></div>
-        </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ARROWS: theories → row 2                              -->
+    <!-- ═══════════════════════════════════════════════════════ -->
 
-        <div style="font-size:13px; color:#555;">↓</div>
+    <!-- GST → Attitudes (center) -->
+    <line x1="140" y1="84" x2="428" y2="174" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#arr-blue)" stroke-dasharray="6,3"/>
+    <!-- GST → Awareness (left) -->
+    <line x1="90" y1="84" x2="93" y2="198" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr-blue)" stroke-dasharray="6,3"/>
 
-        <!-- STAKEHOLDERS -->
-        <div class="node-box stakeholders">
-          <strong style="font-size:11px;">Stakeholders</strong>
-          <ul>
-            <li>Regulators</li>
-            <li>National REC</li>
-            <li>Collaborators</li>
-            <li>Funders</li>
-            <li>Journal publishers</li>
-            <li>CABs members</li>
-            <li>Research groups</li>
-          </ul>
-        </div>
+    <!-- Principlism → Training -->
+    <line x1="350" y1="84" x2="93" y2="358" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr-blue)" stroke-dasharray="6,3"/>
+    <!-- Principlism → Attitudes -->
+    <line x1="428" y1="84" x2="428" y2="174" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#arr-blue)"/>
 
-        <div style="font-size:13px; color:#555;">↓</div>
+    <!-- Distributive Justice → Power Dynamics -->
+    <line x1="716" y1="84" x2="716" y2="618" stroke="#5c4a1a" stroke-width="2.5" marker-end="url(#arr-brown)" stroke-dasharray="6,3"/>
+    <!-- Distributive Justice → Outcome -->
+    <line x1="763" y1="84" x2="763" y2="448" stroke="#5c4a1a" stroke-width="2" marker-end="url(#arr-brown)" stroke-dasharray="6,3"/>
 
-        <!-- NEW: Community Engagement -->
-        <div class="node-box new" style="max-width:230px; width:100%; text-align:center;">
-          <span style="color:#b5451b; font-weight:700;">Community Engagement <span class="badge-new">New</span></span>
-          <div class="small-label" style="margin-top:3px;">Participant autonomy · Informed consent<br>Ethical, Social &amp; Legal risk mitigation</div>
-        </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ROW 2: INDIVIDUAL FACTORS (NEW)  y=178               -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="10" y="178" width="165" height="72" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
+    <text x="93" y="196" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b5451b">Individual Factors</text>
+    <rect x="136" y="182" width="32" height="12" rx="2" fill="#b5451b"/>
+    <text x="152" y="192" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff">NEW</text>
+    <text x="93" y="211" text-anchor="middle" font-size="9.5" fill="#555">Gender · Age · Values</text>
+    <text x="93" y="224" text-anchor="middle" font-size="9.5" fill="#555">Family (genetic/molecular)</text>
+    <text x="93" y="237" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">→ shapes Attitudes</text>
 
-        <!-- POWER DYNAMICS -->
-        <div style="font-size:13px; color:#555;">↓</div>
-        <div class="node-box power" style="max-width:230px; width:100%;">
-          <strong class="power-label" style="font-size:11px;">Power Dynamics <span style="font-size:8.5px; font-style:italic; color:#5c4a1a;">(Distributive Justice)</span></strong>
-          <ul style="color:#444;">
-            <li>LMIC vs. High-Income Countries</li>
-            <li>Participants vs. Researchers</li>
-            <li>Institutional imbalances</li>
-            <li>Data ownership &amp; commercialisation</li>
-          </ul>
-        </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ROW 2: ATTITUDES  y=178  center                       -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="318" y="178" width="220" height="46" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="2"/>
+    <text x="428" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">Attitudes</text>
 
-      </div>
+    <!-- Individual Factors → Attitudes -->
+    <line x1="175" y1="214" x2="316" y2="204" stroke="#b5451b" stroke-width="2.5" marker-end="url(#arr-orange)"/>
 
-      <!-- RIGHT COLUMN -->
-      <div class="main-right">
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ROW 3: AWARENESS (left) + PRACTICES (right)  y=262   -->
+    <!-- ═══════════════════════════════════════════════════════ -->
 
-        <div class="node-box" style="width:100%; text-align:center;">Practices
-          <div class="small-label" style="margin-top:3px;">Platforms · Policies<br>Guidelines</div>
-        </div>
+    <!-- Awareness -->
+    <rect x="10" y="262" width="165" height="62" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
+    <text x="93" y="283" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Awareness</text>
+    <text x="93" y="298" text-anchor="middle" font-size="9.5" fill="#555">of guidelines, policies</text>
+    <text x="93" y="311" text-anchor="middle" font-size="9.5" fill="#555">&amp; platforms</text>
 
-        <div class="arrow-small" style="align-self:center;">↕</div>
+    <!-- Practices -->
+    <rect x="681" y="262" width="165" height="62" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
+    <text x="764" y="283" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Practices</text>
+    <text x="764" y="298" text-anchor="middle" font-size="9.5" fill="#555">Platforms · Policies</text>
+    <text x="764" y="311" text-anchor="middle" font-size="9.5" fill="#555">Guidelines</text>
 
-        <!-- OUTCOME -->
-        <div class="node-box outcome-box" style="width:100%;">
-          <strong style="font-size:11px; color:#1a3a5c;">Outcome</strong>
-          <ul style="margin-top:5px; color:#1a3a5c;">
-            <li>Streamlined Genomic Data Sharing</li>
-            <li>Justice</li>
-            <li>Equity</li>
-            <li>Stipulated Benefit-Sharing Framework</li>
-            <li>Researcher &amp; Regulator Empowerment</li>
-          </ul>
-        </div>
+    <!-- Attitudes → Awareness -->
+    <line x1="318" y1="210" x2="175" y2="270" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <!-- Attitudes → Practices -->
+    <line x1="538" y1="210" x2="681" y2="270" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <!-- Attitudes → down (center) -->
+    <line x1="428" y1="224" x2="428" y2="296" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
 
-      </div>
-    </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ROW 3 CENTER: RELATIONAL FACTORS (NEW)  y=262         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="298" y="262" width="260" height="72" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
+    <text x="428" y="281" text-anchor="middle" font-size="11" font-weight="700" fill="#b5451b">Relational Factors</text>
+    <rect x="526" y="265" width="28" height="12" rx="2" fill="#b5451b"/>
+    <text x="540" y="275" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff">NEW</text>
+    <text x="428" y="296" text-anchor="middle" font-size="9.5" fill="#555">Trust · Collaboration · Communication</text>
+    <text x="428" y="311" text-anchor="middle" font-size="9" fill="#888" font-style="italic">Henrietta Lacks: community &amp; family impact</text>
+    <text x="428" y="325" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">filter through which stakeholders act</text>
 
-    <!-- feedback loops annotation -->
-    <div style="display:flex; justify-content:space-between; padding: 0 20px; font-size:9px; color:#999; font-style:italic; margin-top:2px; margin-bottom:6px;">
-      <span>← Feedback loops across all levels →</span>
-      <span>← Feedback loops across all levels →</span>
-    </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ARROWS → STAKEHOLDERS  y=370                          -->
+    <!-- ═══════════════════════════════════════════════════════ -->
 
-    <!-- ④ GUIDELINES -->
-    <div class="guidelines-row">
-      <div class="node-box guidelines-box">
-        Institutional, National and International Guidelines, Policies, and Laws
-      </div>
-    </div>
+    <!-- Relational → Stakeholders -->
+    <line x1="428" y1="334" x2="428" y2="368" stroke="#b5451b" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+    <!-- Awareness → Stakeholders (curved left) -->
+    <path d="M 93 324 Q 93 350 200 390" stroke="#2c2c2c" stroke-width="2.5" fill="none" marker-end="url(#arr-dark)"/>
+    <!-- Practices → Stakeholders (curved right) -->
+    <path d="M 764 324 Q 764 350 656 390" stroke="#2c2c2c" stroke-width="2.5" fill="none" marker-end="url(#arr-dark)"/>
 
-    <!-- ⑤ LEVELS BAR -->
-    <div class="levels-bar">
-      Levels: Individual · Institutional · National · International
-      <span style="font-size:9px; font-weight:400; font-style:italic; letter-spacing:0.02em; color:#666;">&nbsp;&nbsp;(e.g. bilateral, inter-institutional, global repositories: EGA, dbGaP)</span>
-    </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- STAKEHOLDERS  y=368                                   -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="238" y="368" width="380" height="120" rx="3" fill="#fff" stroke="#1a3a5c" stroke-width="2.5"/>
+    <text x="428" y="388" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a5c">Stakeholders</text>
+    <!-- two columns of bullet items -->
+    <text x="268" y="406" font-size="10" fill="#333">• Regulators</text>
+    <text x="268" y="422" font-size="10" fill="#333">• National REC</text>
+    <text x="268" y="438" font-size="10" fill="#333">• Collaborators</text>
+    <text x="268" y="454" font-size="10" fill="#333">• Funders</text>
+    <text x="430" y="406" font-size="10" fill="#333">• Journal publishers</text>
+    <text x="430" y="422" font-size="10" fill="#333">• CABs members</text>
+    <text x="430" y="438" font-size="10" fill="#333">• Research groups</text>
+    <text x="430" y="454" font-size="10" fill="#333">• Research participants</text>
+    <text x="428" y="476" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">All stakeholders operate across Individual → International levels</text>
 
-  </div><!-- /diagram-inner -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- TRAINING (left)  y=368 + OUTCOME (right)  y=368      -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+
+    <!-- Training & Capacity Building -->
+    <rect x="10" y="368" width="165" height="100" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
+    <text x="93" y="389" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">Training &amp;</text>
+    <text x="93" y="404" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">Capacity Building</text>
+    <text x="93" y="420" text-anchor="middle" font-size="9" fill="#555">Researcher negotiation</text>
+    <text x="93" y="433" text-anchor="middle" font-size="9" fill="#555">REC genomic literacy</text>
+    <text x="93" y="446" text-anchor="middle" font-size="9" fill="#555">Regulator oversight</text>
+    <text x="93" y="460" text-anchor="middle" font-size="8" fill="#1a3a5c" font-style="italic">(Principlism)</text>
+
+    <!-- Outcome box -->
+    <rect x="681" y="368" width="165" height="130" rx="3" fill="#f0f5fa" stroke="#1a3a5c" stroke-width="2.5"/>
+    <text x="764" y="389" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a5c">Outcome</text>
+    <text x="694" y="408" font-size="9.5" fill="#1a3a5c">• Streamlined Data Sharing</text>
+    <text x="694" y="424" font-size="9.5" fill="#1a3a5c">• Justice</text>
+    <text x="694" y="440" font-size="9.5" fill="#1a3a5c">• Equity</text>
+    <text x="694" y="456" font-size="9.5" fill="#1a3a5c">• Benefit-Sharing Framework</text>
+    <text x="694" y="472" font-size="9.5" fill="#1a3a5c">• Researcher Empowerment</text>
+    <text x="764" y="491" text-anchor="middle" font-size="8" fill="#5c4a1a" font-style="italic">(Distributive Justice)</text>
+
+    <!-- Awareness ↕ Training -->
+    <line x1="93" y1="324" x2="93" y2="366" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-both-end)" marker-start="url(#arr-both-start)"/>
+
+    <!-- Training → Stakeholders -->
+    <line x1="175" y1="418" x2="236" y2="418" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+
+    <!-- Practices ↕ Outcome -->
+    <line x1="764" y1="324" x2="764" y2="366" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-both-end)" marker-start="url(#arr-both-start)"/>
+
+    <!-- Stakeholders → Outcome -->
+    <line x1="618" y1="418" x2="679" y2="418" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- COMMUNITY ENGAGEMENT (NEW)  y=514                     -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="238" y="514" width="380" height="72" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
+    <text x="428" y="534" text-anchor="middle" font-size="11" font-weight="700" fill="#b5451b">Community Engagement</text>
+    <rect x="568" y="517" width="28" height="12" rx="2" fill="#b5451b"/>
+    <text x="582" y="527" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff">NEW</text>
+    <text x="428" y="550" text-anchor="middle" font-size="9.5" fill="#555">Participant autonomy · Informed consent</text>
+    <text x="428" y="564" text-anchor="middle" font-size="9.5" fill="#555">Ethical · Social · Legal risk mitigation</text>
+    <text x="428" y="578" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">(Principlism: autonomy &amp; non-maleficence)</text>
+
+    <!-- Stakeholders → Community Engagement -->
+    <line x1="428" y1="488" x2="428" y2="512" stroke="#b5451b" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- POWER DYNAMICS  y=614                                  -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="238" y="614" width="380" height="98" rx="3" fill="#fdf5e8" stroke="#5c4a1a" stroke-width="2.5"/>
+    <text x="370" y="634" text-anchor="middle" font-size="12" font-weight="700" fill="#5c4a1a">Power Dynamics</text>
+    <text x="530" y="634" text-anchor="middle" font-size="8.5" fill="#5c4a1a" font-style="italic">(Distributive Justice)</text>
+    <text x="258" y="652" font-size="9.5" fill="#444">• LMIC vs. High-Income Countries</text>
+    <text x="258" y="668" font-size="9.5" fill="#444">• Research participants vs. Researchers</text>
+    <text x="258" y="684" font-size="9.5" fill="#444">• Institutional imbalances</text>
+    <text x="258" y="700" font-size="9.5" fill="#444">• Data ownership &amp; commercialisation</text>
+
+    <!-- Community Engagement → Power Dynamics -->
+    <line x1="428" y1="586" x2="428" y2="612" stroke="#5c4a1a" stroke-width="2.5" marker-end="url(#arr-brown)"/>
+
+    <!-- Power Dynamics → Outcome (right curved) -->
+    <path d="M 618 663 Q 660 663 679 500" stroke="#5c4a1a" stroke-width="2.5" fill="none" marker-end="url(#arr-brown)"/>
+
+    <!-- Training → Power Dynamics (left curved) -->
+    <path d="M 93 468 Q 93 663 236 663" stroke="#2c2c2c" stroke-width="2" fill="none" marker-end="url(#arr-dark)" stroke-dasharray="5,3"/>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- GUIDELINES  y=738                                      -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="10" y="738" width="836" height="48" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="2"/>
+    <text x="428" y="758" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Institutional, National and International Guidelines, Policies, and Laws</text>
+    <text x="428" y="776" text-anchor="middle" font-size="9" fill="#666" font-style="italic">Govern all stakeholder relationships and data sharing at every level</text>
+
+    <!-- Power Dynamics → Guidelines -->
+    <line x1="428" y1="712" x2="428" y2="736" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <!-- Guidelines ← left feedback -->
+    <path d="M 93 738 Q 35 738 35 663 Q 35 200 93 178" stroke="#2c2c2c" stroke-width="2" fill="none" marker-end="url(#arr-dark)" stroke-dasharray="5,4" opacity="0.5"/>
+    <!-- Guidelines ← right feedback -->
+    <path d="M 764 738 Q 830 738 830 663 Q 830 200 764 178" stroke="#5c4a1a" stroke-width="2" fill="none" marker-end="url(#arr-brown)" stroke-dasharray="5,4" opacity="0.5"/>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- LEVELS BAR  y=810                                      -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <rect x="10" y="810" width="836" height="46" rx="3" fill="#e8ecf0" stroke="#1a1a1a" stroke-width="2.5"/>
+    <text x="428" y="830" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a" letter-spacing="0.5">LEVELS: INDIVIDUAL · INSTITUTIONAL · NATIONAL · INTERNATIONAL</text>
+    <text x="428" y="847" text-anchor="middle" font-size="8.5" fill="#555" font-style="italic">e.g. bilateral sharing, inter-institutional, global repositories (EGA, dbGaP)</text>
+
+    <!-- Guidelines → Levels -->
+    <line x1="428" y1="786" x2="428" y2="808" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FEEDBACK LOOP LABELS                                   -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <text x="20" y="568" font-size="8" fill="#1a3a5c" font-style="italic" transform="rotate(-90,20,568)">Feedback loop (GST)</text>
+    <text x="842" y="550" font-size="8" fill="#5c4a1a" font-style="italic" transform="rotate(90,842,550)">Feedback loop (Dist. Justice)</text>
+
+  </svg>
 
   <!-- LEGEND -->
-  <hr class="divider">
   <div class="legend">
-    <div class="legend-item">
-      <div class="legend-box legend-box-theory"></div>
+    <div class="li">
+      <svg width="22" height="14"><rect width="22" height="14" fill="#1a3a5c"/></svg>
       <span>Theoretical framework pillar</span>
     </div>
-    <div class="legend-item">
-      <div class="legend-box legend-box-new"></div>
-      <span>Newly added node (per supervisor critique)</span>
+    <div class="li">
+      <svg width="22" height="14"><rect width="22" height="14" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/></svg>
+      <span>Newly added node (supervisor critique)</span>
     </div>
-    <div class="legend-item">
-      <div class="legend-box legend-box-outcome"></div>
+    <div class="li">
+      <svg width="22" height="14"><rect width="22" height="14" fill="#f0f5fa" stroke="#1a3a5c" stroke-width="2"/></svg>
       <span>Outcome node</span>
     </div>
-    <div class="legend-item">
-      <div class="legend-box"></div>
+    <div class="li">
+      <svg width="22" height="14"><rect width="22" height="14" fill="#fdf5e8" stroke="#5c4a1a" stroke-width="2"/></svg>
+      <span>Distributive Justice node</span>
+    </div>
+    <div class="li">
+      <svg width="22" height="14"><rect width="22" height="14" fill="#fff" stroke="#2c2c2c" stroke-width="2"/></svg>
       <span>Original node (retained/expanded)</span>
     </div>
-    <div class="legend-item" style="margin-left:auto; font-style:italic; color:#888; font-size:9.5px;">
-      Nodes marked <span class="badge-new" style="position:static;">New</span> respond directly to supervisor feedback
+    <div class="li" style="margin-left:auto; font-style:italic; color:#888; font-size:9.5px;">
+      Dashed arrows = feedback loops &amp; theory-to-node mappings
     </div>
   </div>
 
-</div><!-- /page -->
+</div>
 </body>
 </html>
