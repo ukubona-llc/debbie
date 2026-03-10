@@ -5,9 +5,7 @@
 <title>Conceptual Framework: Ideal Genomic Data Sharing Process</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Lora:wght@400;600;700&display=swap');
-
   * { margin:0; padding:0; box-sizing:border-box; }
-
   body {
     background: #edeae3;
     font-family: 'Source Sans 3', sans-serif;
@@ -15,318 +13,326 @@
     justify-content: center;
     padding: 40px 20px 60px;
   }
-
   .page {
     background: #fff;
-    width: 960px;
-    padding: 44px 52px 50px;
+    width: 1000px;
+    padding: 44px 48px 50px;
     box-shadow: 0 6px 48px rgba(0,0,0,0.13);
   }
-
   .fig-title {
     font-family: 'Lora', serif;
     font-size: 14px;
     color: #222;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
-
-  /* ─── SVG diagram ─── */
-  svg {
-    display: block;
-    width: 100%;
-    overflow: visible;
-  }
-
-  /* legend */
+  svg { display:block; width:100%; overflow:visible; }
   .legend {
-    margin-top: 22px;
+    margin-top: 20px;
     border-top: 1px solid #ccc;
     padding-top: 14px;
     display: flex;
     flex-wrap: wrap;
-    gap: 18px 28px;
+    gap: 14px 24px;
     align-items: center;
   }
-  .li { display:flex; align-items:center; gap:7px; font-size:10.5px; color:#333; }
-  .lb { width:22px; height:14px; }
+  .li { display:flex; align-items:center; gap:7px; font-size:10px; color:#333; font-family:'Source Sans 3',sans-serif; }
 </style>
 </head>
 <body>
 <div class="page">
   <p class="fig-title"><strong>Figure 1:</strong> Conceptual Framework: Ideal Genomic Data Sharing Process <em>(Revised)</em></p>
 
-  <svg id="diagram" viewBox="0 0 856 900" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3', sans-serif">
+  <!--
+    LAYOUT PLAN (no crossing arrows):
+    ─ Three theory boxes at top, each directly above their zone
+    ─ GST (left box) → straight down left spine to Awareness, Training
+    ─ Principlism (centre box) → straight down to Attitudes, then Community Engagement via centre-left channel
+    ─ Distributive Justice (right box) → straight down right spine to Outcome, Power Dynamics
+    ─ All process arrows (Attitudes→nodes, Stakeholders→etc.) go straight horizontal or vertical
+    ─ Feedback loops run outside the diagram on the far left and far right edges only
+  -->
 
+  <svg viewBox="0 0 920 970" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
     <defs>
-      <!-- Arrow markers — large, bold -->
-      <marker id="arr-dark" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#2c2c2c"/>
-      </marker>
-      <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#1a3a5c"/>
-      </marker>
-      <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#7a3010"/>
-      </marker>
-      <marker id="arr-brown" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#5c4a1a"/>
-      </marker>
-      <marker id="arr-dark-rev" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
-        <polygon points="10 0, 0 3.5, 10 7" fill="#2c2c2c"/>
-      </marker>
-      <marker id="arr-dark-start" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
-        <polygon points="10 0, 0 3.5, 10 7" fill="#2c2c2c"/>
-      </marker>
-      <!-- Double-headed: use both start+end markers -->
-      <marker id="arr-both-end" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#2c2c2c"/>
-      </marker>
-      <marker id="arr-both-start" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto-start-reverse">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#2c2c2c"/>
-      </marker>
+      <marker id="a-blk" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,9 3,0 6" fill="#2c2c2c"/></marker>
+      <marker id="a-blu" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,9 3,0 6" fill="#1a3a5c"/></marker>
+      <marker id="a-grn" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,9 3,0 6" fill="#1a6640"/></marker>
+      <marker id="a-brn" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,9 3,0 6" fill="#5c4a1a"/></marker>
+      <marker id="a-org" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,9 3,0 6" fill="#b5451b"/></marker>
+      <!-- reverse markers for double-headed arrows -->
+      <marker id="a-blk-r" markerWidth="9" markerHeight="6" refX="1" refY="3" orient="auto-start-reverse"><polygon points="0 0,9 3,0 6" fill="#2c2c2c"/></marker>
     </defs>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- BACKGROUND THEORY ZONES (colour washes)                -->
-    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════════
+         BACKGROUND ZONES (drawn first, behind everything)
+         ════════════════════════════════════════════════ -->
 
-    <!-- GST zone: left column + attitudes + stakeholders (light blue wash) -->
-    <rect x="2" y="2" width="852" height="860" rx="6" fill="#f7f9fc" stroke="#d0dce8" stroke-width="1.5"/>
+    <!-- Full diagram bg -->
+    <rect x="2" y="2" width="916" height="962" rx="6" fill="#f7f9fc" stroke="#d4dce8" stroke-width="1.5"/>
 
-    <!-- Principlism zone: left band -->
-    <rect x="10" y="170" width="165" height="480" rx="4" fill="#e8f0f8" stroke="#1a3a5c" stroke-width="1" stroke-dasharray="5,3" opacity="0.6"/>
-    <text x="93" y="162" text-anchor="middle" font-size="8.5" fill="#1a3a5c" font-style="italic" opacity="0.9">Principlism zone</text>
+    <!-- GST zone: left column -->
+    <rect x="10" y="180" width="175" height="530" rx="4" fill="#deeaf5" stroke="#1a3a5c" stroke-width="1" stroke-dasharray="5,3" opacity="0.55"/>
+    <text x="98" y="173" text-anchor="middle" font-size="8" fill="#1a3a5c" font-style="italic">GST zone</text>
 
-    <!-- Distributive Justice zone: right band -->
-    <rect x="681" y="170" width="165" height="480" rx="4" fill="#fdf5e8" stroke="#5c4a1a" stroke-width="1" stroke-dasharray="5,3" opacity="0.6"/>
-    <text x="763" y="162" text-anchor="middle" font-size="8.5" fill="#5c4a1a" font-style="italic" opacity="0.9">Distributive Justice zone</text>
+    <!-- Principlism zone: centre column -->
+    <rect x="200" y="180" width="330" height="530" rx="4" fill="#e6f2ea" stroke="#1a6640" stroke-width="1" stroke-dasharray="5,3" opacity="0.45"/>
+    <text x="365" y="173" text-anchor="middle" font-size="8" fill="#1a6640" font-style="italic">Principlism zone</text>
 
-    <!-- GST zone label -->
-    <text x="428" y="162" text-anchor="middle" font-size="8.5" fill="#555" font-style="italic" opacity="0.9">General Systems Theory zone</text>
+    <!-- Distributive Justice zone: right column -->
+    <rect x="546" y="180" width="368" height="530" rx="4" fill="#fdf3e3" stroke="#5c4a1a" stroke-width="1" stroke-dasharray="5,3" opacity="0.55"/>
+    <text x="730" y="173" text-anchor="middle" font-size="8" fill="#5c4a1a" font-style="italic">Distributive Justice zone</text>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- ROW 1: THREE THEORY PILLARS  y=18                     -->
-    <!-- ═══════════════════════════════════════════════════════ -->
 
-    <!-- GST box -->
-    <rect x="10" y="18" width="260" height="66" rx="3" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="2"/>
-    <text x="140" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.5">GENERAL SYSTEMS THEORY</text>
-    <text x="140" y="52" text-anchor="middle" font-size="9.5" fill="#aac4d8">Structural flow · Feedback loops</text>
-    <text x="140" y="64" text-anchor="middle" font-size="9.5" fill="#aac4d8">Multi-level architecture</text>
-    <text x="140" y="78" text-anchor="middle" font-size="8" fill="#7fafc8" font-style="italic">→ Attitudes · Awareness · Practices · Stakeholders</text>
+    <!-- ════════════════════════════════════════════════
+         ROW 1 — THREE THEORY PILLARS   y=18
+         Positions: GST x=10, Principlism x=330, DJ x=630
+         ════════════════════════════════════════════════ -->
 
-    <!-- Principlism box -->
-    <rect x="298" y="18" width="260" height="66" rx="3" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="2"/>
-    <text x="428" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.5">PRINCIPLISM</text>
-    <text x="428" y="52" text-anchor="middle" font-size="9.5" fill="#aac4d8">Autonomy · Beneficence</text>
-    <text x="428" y="64" text-anchor="middle" font-size="9.5" fill="#aac4d8">Non-maleficence · Justice</text>
-    <text x="428" y="78" text-anchor="middle" font-size="8" fill="#7fafc8" font-style="italic">→ Training &amp; Capacity Building · Community Engagement</text>
+    <!-- GST -->
+    <rect x="10" y="18" width="270" height="70" rx="3" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="2"/>
+    <text x="145" y="38" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" letter-spacing="0.4">GENERAL SYSTEMS THEORY</text>
+    <text x="145" y="53" text-anchor="middle" font-size="9" fill="#aac4d8">Structural flow · Feedback loops</text>
+    <text x="145" y="65" text-anchor="middle" font-size="9" fill="#aac4d8">Multi-level architecture</text>
+    <text x="145" y="81" text-anchor="middle" font-size="7.5" fill="#7fafc8" font-style="italic">→ Awareness · Training · Attitudes · Stakeholders</text>
 
-    <!-- Distributive Justice box -->
-    <rect x="586" y="18" width="260" height="66" rx="3" fill="#5c4a1a" stroke="#5c4a1a" stroke-width="2"/>
-    <text x="716" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.5">DISTRIBUTIVE JUSTICE</text>
-    <text x="716" y="52" text-anchor="middle" font-size="9.5" fill="#d4b896">Power &amp; equity lens</text>
-    <text x="716" y="64" text-anchor="middle" font-size="9.5" fill="#d4b896">LMIC vs HIC · Data ownership</text>
-    <text x="716" y="78" text-anchor="middle" font-size="8" fill="#b8966a" font-style="italic">→ Power Dynamics · Outcomes (Equity, Justice)</text>
+    <!-- Principlism -->
+    <rect x="310" y="18" width="270" height="70" rx="3" fill="#1a6640" stroke="#1a6640" stroke-width="2"/>
+    <text x="445" y="38" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" letter-spacing="0.4">PRINCIPLISM</text>
+    <text x="445" y="53" text-anchor="middle" font-size="9" fill="#a8d8b8">Autonomy · Beneficence</text>
+    <text x="445" y="65" text-anchor="middle" font-size="9" fill="#a8d8b8">Non-maleficence · Justice</text>
+    <text x="445" y="81" text-anchor="middle" font-size="7.5" fill="#7fc49a" font-style="italic">→ Attitudes · Relational Factors · Community Engagement</text>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- ARROWS: theories → row 2                              -->
-    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- Distributive Justice -->
+    <rect x="610" y="18" width="300" height="70" rx="3" fill="#5c4a1a" stroke="#5c4a1a" stroke-width="2"/>
+    <text x="760" y="38" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" letter-spacing="0.4">DISTRIBUTIVE JUSTICE</text>
+    <text x="760" y="53" text-anchor="middle" font-size="9" fill="#d4b896">Power &amp; equity lens · LMIC vs HIC</text>
+    <text x="760" y="65" text-anchor="middle" font-size="9" fill="#d4b896">Data ownership · Commercialisation</text>
+    <text x="760" y="81" text-anchor="middle" font-size="7.5" fill="#b8966a" font-style="italic">→ Power Dynamics · Outcome (Equity, Justice)</text>
 
-    <!-- GST → Attitudes (center) -->
-    <line x1="140" y1="84" x2="428" y2="174" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#arr-blue)" stroke-dasharray="6,3"/>
-    <!-- GST → Awareness (left) -->
-    <line x1="90" y1="84" x2="93" y2="198" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr-blue)" stroke-dasharray="6,3"/>
 
-    <!-- Principlism → Training -->
-    <line x1="350" y1="84" x2="93" y2="358" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr-blue)" stroke-dasharray="6,3"/>
-    <!-- Principlism → Attitudes -->
-    <line x1="428" y1="84" x2="428" y2="174" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+    <!-- ════════════════════════════════════════════════
+         THEORY → NODE ARROWS  (no crossing!)
+         GST left box → goes straight down to left zone
+         Principlism centre box → straight down to centre zone
+         DJ right box → straight down to right zone
+         ════════════════════════════════════════════════ -->
 
-    <!-- Distributive Justice → Power Dynamics -->
-    <line x1="716" y1="84" x2="716" y2="618" stroke="#5c4a1a" stroke-width="2.5" marker-end="url(#arr-brown)" stroke-dasharray="6,3"/>
-    <!-- Distributive Justice → Outcome -->
-    <line x1="763" y1="84" x2="763" y2="448" stroke="#5c4a1a" stroke-width="2" marker-end="url(#arr-brown)" stroke-dasharray="6,3"/>
+    <!-- GST → Awareness (straight down left side) -->
+    <line x1="98" y1="88" x2="98" y2="196" stroke="#1a3a5c" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#a-blu)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- ROW 2: INDIVIDUAL FACTORS (NEW)  y=178               -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="10" y="178" width="165" height="72" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
-    <text x="93" y="196" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b5451b">Individual Factors</text>
-    <rect x="136" y="182" width="32" height="12" rx="2" fill="#b5451b"/>
-    <text x="152" y="192" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff">NEW</text>
-    <text x="93" y="211" text-anchor="middle" font-size="9.5" fill="#555">Gender · Age · Values</text>
-    <text x="93" y="224" text-anchor="middle" font-size="9.5" fill="#555">Family (genetic/molecular)</text>
-    <text x="93" y="237" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">→ shapes Attitudes</text>
+    <!-- Principlism → Attitudes (straight down centre) -->
+    <line x1="445" y1="88" x2="445" y2="226" stroke="#1a6640" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#a-grn)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- ROW 2: ATTITUDES  y=178  center                       -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="318" y="178" width="220" height="46" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="2"/>
-    <text x="428" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">Attitudes</text>
+    <!-- Principlism → Relational Factors (slight offset, no crossing) -->
+    <line x1="420" y1="88" x2="365" y2="316" stroke="#1a6640" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#a-grn)" opacity="0.75"/>
+
+    <!-- Principlism → Community Engagement (straight down through centre) -->
+    <line x1="460" y1="88" x2="460" y2="610" stroke="#1a6640" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#a-grn)" opacity="0.6"/>
+
+    <!-- DJ → Outcome (straight down right side) -->
+    <line x1="820" y1="88" x2="820" y2="376" stroke="#5c4a1a" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#a-brn)"/>
+
+    <!-- DJ → Power Dynamics (straight down right side, slightly inset) -->
+    <line x1="795" y1="88" x2="795" y2="626" stroke="#5c4a1a" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#a-brn)" opacity="0.7"/>
+
+
+    <!-- ════════════════════════════════════════════════
+         ROW 2 — INDIVIDUAL FACTORS (NEW, left) + ATTITUDES (centre)
+         y=196
+         ════════════════════════════════════════════════ -->
+
+    <!-- Individual Factors -->
+    <rect x="10" y="196" width="175" height="78" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
+    <text x="98" y="215" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b5451b">Individual Factors</text>
+    <rect x="142" y="199" width="30" height="12" rx="2" fill="#b5451b"/>
+    <text x="157" y="209" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">NEW</text>
+    <text x="98" y="231" text-anchor="middle" font-size="9" fill="#555">Gender · Age · Values</text>
+    <text x="98" y="244" text-anchor="middle" font-size="9" fill="#555">Family (genetic/molecular)</text>
+    <text x="98" y="258" text-anchor="middle" font-size="8" fill="#b5451b" font-style="italic">↓ shapes Attitudes</text>
+    <text x="98" y="268" text-anchor="middle" font-size="7.5" fill="#888" font-style="italic">(GST: individual level)</text>
+
+    <!-- Attitudes -->
+    <rect x="295" y="226" width="300" height="48" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="2.2"/>
+    <text x="445" y="256" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a">Attitudes</text>
 
     <!-- Individual Factors → Attitudes -->
-    <line x1="175" y1="214" x2="316" y2="204" stroke="#b5451b" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+    <line x1="185" y1="235" x2="293" y2="250" stroke="#b5451b" stroke-width="2.5" marker-end="url(#a-org)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- ROW 3: AWARENESS (left) + PRACTICES (right)  y=262   -->
-    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════════
+         ROW 3 — AWARENESS (left) + RELATIONAL FACTORS (centre) + PRACTICES (right)
+         y=316
+         ════════════════════════════════════════════════ -->
 
     <!-- Awareness -->
-    <rect x="10" y="262" width="165" height="62" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
-    <text x="93" y="283" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Awareness</text>
-    <text x="93" y="298" text-anchor="middle" font-size="9.5" fill="#555">of guidelines, policies</text>
-    <text x="93" y="311" text-anchor="middle" font-size="9.5" fill="#555">&amp; platforms</text>
+    <rect x="10" y="316" width="175" height="65" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
+    <text x="98" y="337" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Awareness</text>
+    <text x="98" y="352" text-anchor="middle" font-size="9" fill="#555">of guidelines, policies</text>
+    <text x="98" y="365" text-anchor="middle" font-size="9" fill="#555">&amp; platforms</text>
+    <text x="98" y="376" text-anchor="middle" font-size="7.5" fill="#1a3a5c" font-style="italic">(GST)</text>
+
+    <!-- Relational Factors (NEW) -->
+    <rect x="200" y="316" width="330" height="76" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
+    <text x="365" y="337" text-anchor="middle" font-size="11" font-weight="700" fill="#b5451b">Relational Factors</text>
+    <rect x="489" y="319" width="30" height="12" rx="2" fill="#b5451b"/>
+    <text x="504" y="329" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">NEW</text>
+    <text x="365" y="353" text-anchor="middle" font-size="9.5" fill="#444">Trust · Collaboration · Communication</text>
+    <text x="365" y="368" text-anchor="middle" font-size="9" fill="#777" font-style="italic">Henrietta Lacks: community &amp; family impact</text>
+    <text x="365" y="382" text-anchor="middle" font-size="8" fill="#888" font-style="italic">(Principlism: ethical filter for stakeholder action)</text>
 
     <!-- Practices -->
-    <rect x="681" y="262" width="165" height="62" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
-    <text x="764" y="283" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Practices</text>
-    <text x="764" y="298" text-anchor="middle" font-size="9.5" fill="#555">Platforms · Policies</text>
-    <text x="764" y="311" text-anchor="middle" font-size="9.5" fill="#555">Guidelines</text>
+    <rect x="548" y="316" width="175" height="65" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
+    <text x="636" y="337" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Practices</text>
+    <text x="636" y="352" text-anchor="middle" font-size="9" fill="#555">Platforms · Policies</text>
+    <text x="636" y="365" text-anchor="middle" font-size="9" fill="#555">Guidelines</text>
+    <text x="636" y="376" text-anchor="middle" font-size="7.5" fill="#1a3a5c" font-style="italic">(GST)</text>
 
     <!-- Attitudes → Awareness -->
-    <line x1="318" y1="210" x2="175" y2="270" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <line x1="295" y1="260" x2="175" y2="340" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
+    <!-- Attitudes → Relational Factors -->
+    <line x1="400" y1="274" x2="365" y2="314" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
     <!-- Attitudes → Practices -->
-    <line x1="538" y1="210" x2="681" y2="270" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
-    <!-- Attitudes → down (center) -->
-    <line x1="428" y1="224" x2="428" y2="296" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <line x1="595" y1="260" x2="636" y2="314" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- ROW 3 CENTER: RELATIONAL FACTORS (NEW)  y=262         -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="298" y="262" width="260" height="72" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
-    <text x="428" y="281" text-anchor="middle" font-size="11" font-weight="700" fill="#b5451b">Relational Factors</text>
-    <rect x="526" y="265" width="28" height="12" rx="2" fill="#b5451b"/>
-    <text x="540" y="275" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff">NEW</text>
-    <text x="428" y="296" text-anchor="middle" font-size="9.5" fill="#555">Trust · Collaboration · Communication</text>
-    <text x="428" y="311" text-anchor="middle" font-size="9" fill="#888" font-style="italic">Henrietta Lacks: community &amp; family impact</text>
-    <text x="428" y="325" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">filter through which stakeholders act</text>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- ARROWS → STAKEHOLDERS  y=370                          -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-
-    <!-- Relational → Stakeholders -->
-    <line x1="428" y1="334" x2="428" y2="368" stroke="#b5451b" stroke-width="2.5" marker-end="url(#arr-orange)"/>
-    <!-- Awareness → Stakeholders (curved left) -->
-    <path d="M 93 324 Q 93 350 200 390" stroke="#2c2c2c" stroke-width="2.5" fill="none" marker-end="url(#arr-dark)"/>
-    <!-- Practices → Stakeholders (curved right) -->
-    <path d="M 764 324 Q 764 350 656 390" stroke="#2c2c2c" stroke-width="2.5" fill="none" marker-end="url(#arr-dark)"/>
-
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- STAKEHOLDERS  y=368                                   -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="238" y="368" width="380" height="120" rx="3" fill="#fff" stroke="#1a3a5c" stroke-width="2.5"/>
-    <text x="428" y="388" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a5c">Stakeholders</text>
-    <!-- two columns of bullet items -->
-    <text x="268" y="406" font-size="10" fill="#333">• Regulators</text>
-    <text x="268" y="422" font-size="10" fill="#333">• National REC</text>
-    <text x="268" y="438" font-size="10" fill="#333">• Collaborators</text>
-    <text x="268" y="454" font-size="10" fill="#333">• Funders</text>
-    <text x="430" y="406" font-size="10" fill="#333">• Journal publishers</text>
-    <text x="430" y="422" font-size="10" fill="#333">• CABs members</text>
-    <text x="430" y="438" font-size="10" fill="#333">• Research groups</text>
-    <text x="430" y="454" font-size="10" fill="#333">• Research participants</text>
-    <text x="428" y="476" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">All stakeholders operate across Individual → International levels</text>
-
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- TRAINING (left)  y=368 + OUTCOME (right)  y=368      -->
-    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════════
+         ROW 4 — TRAINING (left) + STAKEHOLDERS (centre) + OUTCOME (right)
+         y=428
+         ════════════════════════════════════════════════ -->
 
     <!-- Training & Capacity Building -->
-    <rect x="10" y="368" width="165" height="100" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
-    <text x="93" y="389" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">Training &amp;</text>
-    <text x="93" y="404" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">Capacity Building</text>
-    <text x="93" y="420" text-anchor="middle" font-size="9" fill="#555">Researcher negotiation</text>
-    <text x="93" y="433" text-anchor="middle" font-size="9" fill="#555">REC genomic literacy</text>
-    <text x="93" y="446" text-anchor="middle" font-size="9" fill="#555">Regulator oversight</text>
-    <text x="93" y="460" text-anchor="middle" font-size="8" fill="#1a3a5c" font-style="italic">(Principlism)</text>
+    <rect x="10" y="428" width="175" height="112" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="1.8"/>
+    <text x="98" y="448" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">Training &amp;</text>
+    <text x="98" y="462" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1a">Capacity Building</text>
+    <text x="98" y="479" text-anchor="middle" font-size="9" fill="#555">Researcher negotiation</text>
+    <text x="98" y="492" text-anchor="middle" font-size="9" fill="#555">REC genomic literacy</text>
+    <text x="98" y="505" text-anchor="middle" font-size="9" fill="#555">Regulator oversight</text>
+    <text x="98" y="519" text-anchor="middle" font-size="7.5" fill="#1a6640" font-style="italic">(Principlism)</text>
+    <text x="98" y="532" text-anchor="middle" font-size="7.5" fill="#1a3a5c" font-style="italic">(GST)</text>
 
-    <!-- Outcome box -->
-    <rect x="681" y="368" width="165" height="130" rx="3" fill="#f0f5fa" stroke="#1a3a5c" stroke-width="2.5"/>
-    <text x="764" y="389" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a5c">Outcome</text>
-    <text x="694" y="408" font-size="9.5" fill="#1a3a5c">• Streamlined Data Sharing</text>
-    <text x="694" y="424" font-size="9.5" fill="#1a3a5c">• Justice</text>
-    <text x="694" y="440" font-size="9.5" fill="#1a3a5c">• Equity</text>
-    <text x="694" y="456" font-size="9.5" fill="#1a3a5c">• Benefit-Sharing Framework</text>
-    <text x="694" y="472" font-size="9.5" fill="#1a3a5c">• Researcher Empowerment</text>
-    <text x="764" y="491" text-anchor="middle" font-size="8" fill="#5c4a1a" font-style="italic">(Distributive Justice)</text>
+    <!-- Stakeholders -->
+    <rect x="200" y="428" width="330" height="130" rx="3" fill="#fff" stroke="#1a3a5c" stroke-width="2.5"/>
+    <text x="365" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#1a3a5c">Stakeholders</text>
+    <text x="220" y="470" font-size="9.5" fill="#333">• Regulators</text>
+    <text x="220" y="486" font-size="9.5" fill="#333">• National REC</text>
+    <text x="220" y="502" font-size="9.5" fill="#333">• Collaborators</text>
+    <text x="220" y="518" font-size="9.5" fill="#333">• Funders</text>
+    <text x="370" y="470" font-size="9.5" fill="#333">• Journal publishers</text>
+    <text x="370" y="486" font-size="9.5" fill="#333">• CABs members</text>
+    <text x="370" y="502" font-size="9.5" fill="#333">• Research groups</text>
+    <text x="370" y="518" font-size="9.5" fill="#333">• Research participants</text>
+    <text x="365" y="548" text-anchor="middle" font-size="8" fill="#888" font-style="italic">All stakeholders operate across Individual → International levels</text>
 
-    <!-- Awareness ↕ Training -->
-    <line x1="93" y1="324" x2="93" y2="366" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-both-end)" marker-start="url(#arr-both-start)"/>
+    <!-- Outcome -->
+    <rect x="548" y="428" width="364" height="148" rx="3" fill="#f0f5fa" stroke="#1a3a5c" stroke-width="2.5"/>
+    <text x="730" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#1a3a5c">Outcome</text>
+    <text x="566" y="470" font-size="9.5" fill="#1a3a5c">• Streamlined Genomic Data Sharing</text>
+    <text x="566" y="487" font-size="9.5" fill="#1a3a5c">• Justice</text>
+    <text x="566" y="504" font-size="9.5" fill="#1a3a5c">• Equity</text>
+    <text x="566" y="521" font-size="9.5" fill="#1a3a5c">• Stipulated Benefit-Sharing Framework</text>
+    <text x="566" y="538" font-size="9.5" fill="#1a3a5c">• Researcher &amp; Regulator Empowerment</text>
+    <text x="730" y="562" text-anchor="middle" font-size="8" fill="#5c4a1a" font-style="italic">(Distributive Justice: equity &amp; justice outcomes)</text>
+    <text x="730" y="574" text-anchor="middle" font-size="8" fill="#1a6640" font-style="italic">(Principlism: autonomy &amp; beneficence realised)</text>
+
+    <!-- Awareness ↕ Training (double-headed) -->
+    <line x1="98" y1="381" x2="98" y2="426" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)" marker-start="url(#a-blk-r)"/>
+
+    <!-- Relational Factors → Stakeholders -->
+    <line x1="365" y1="392" x2="365" y2="426" stroke="#b5451b" stroke-width="2.5" marker-end="url(#a-org)"/>
 
     <!-- Training → Stakeholders -->
-    <line x1="175" y1="418" x2="236" y2="418" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <line x1="185" y1="484" x2="198" y2="484" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
 
-    <!-- Practices ↕ Outcome -->
-    <line x1="764" y1="324" x2="764" y2="366" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-both-end)" marker-start="url(#arr-both-start)"/>
+    <!-- Practices → Stakeholders (horizontal) -->
+    <line x1="548" y1="480" x2="532" y2="480" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
 
     <!-- Stakeholders → Outcome -->
-    <line x1="618" y1="418" x2="679" y2="418" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <line x1="530" y1="493" x2="546" y2="493" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- COMMUNITY ENGAGEMENT (NEW)  y=514                     -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="238" y="514" width="380" height="72" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
-    <text x="428" y="534" text-anchor="middle" font-size="11" font-weight="700" fill="#b5451b">Community Engagement</text>
-    <rect x="568" y="517" width="28" height="12" rx="2" fill="#b5451b"/>
-    <text x="582" y="527" text-anchor="middle" font-size="7.5" font-weight="700" fill="#fff">NEW</text>
-    <text x="428" y="550" text-anchor="middle" font-size="9.5" fill="#555">Participant autonomy · Informed consent</text>
-    <text x="428" y="564" text-anchor="middle" font-size="9.5" fill="#555">Ethical · Social · Legal risk mitigation</text>
-    <text x="428" y="578" text-anchor="middle" font-size="8.5" fill="#888" font-style="italic">(Principlism: autonomy &amp; non-maleficence)</text>
+    <!-- Practices ↕ Outcome (double-headed) -->
+    <line x1="636" y1="381" x2="700" y2="426" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)" marker-start="url(#a-blk-r)"/>
+
+
+    <!-- ════════════════════════════════════════════════
+         ROW 5 — COMMUNITY ENGAGEMENT (centre)  y=610
+         ════════════════════════════════════════════════ -->
+
+    <rect x="200" y="610" width="330" height="80" rx="3" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/>
+    <text x="365" y="631" text-anchor="middle" font-size="11" font-weight="700" fill="#b5451b">Community Engagement</text>
+    <rect x="490" y="613" width="30" height="12" rx="2" fill="#b5451b"/>
+    <text x="505" y="623" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">NEW</text>
+    <text x="365" y="648" text-anchor="middle" font-size="9.5" fill="#555">Participant autonomy · Informed consent</text>
+    <text x="365" y="663" text-anchor="middle" font-size="9.5" fill="#555">Ethical · Social · Legal risk mitigation</text>
+    <text x="365" y="681" text-anchor="middle" font-size="8" fill="#888" font-style="italic">(Principlism: autonomy, non-maleficence; risk of re-identification, inequity)</text>
 
     <!-- Stakeholders → Community Engagement -->
-    <line x1="428" y1="488" x2="428" y2="512" stroke="#b5451b" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+    <line x1="365" y1="558" x2="365" y2="608" stroke="#b5451b" stroke-width="2.5" marker-end="url(#a-org)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- POWER DYNAMICS  y=614                                  -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="238" y="614" width="380" height="98" rx="3" fill="#fdf5e8" stroke="#5c4a1a" stroke-width="2.5"/>
-    <text x="370" y="634" text-anchor="middle" font-size="12" font-weight="700" fill="#5c4a1a">Power Dynamics</text>
-    <text x="530" y="634" text-anchor="middle" font-size="8.5" fill="#5c4a1a" font-style="italic">(Distributive Justice)</text>
-    <text x="258" y="652" font-size="9.5" fill="#444">• LMIC vs. High-Income Countries</text>
-    <text x="258" y="668" font-size="9.5" fill="#444">• Research participants vs. Researchers</text>
-    <text x="258" y="684" font-size="9.5" fill="#444">• Institutional imbalances</text>
-    <text x="258" y="700" font-size="9.5" fill="#444">• Data ownership &amp; commercialisation</text>
+
+    <!-- ════════════════════════════════════════════════
+         ROW 6 — POWER DYNAMICS  y=726
+         ════════════════════════════════════════════════ -->
+
+    <rect x="200" y="726" width="330" height="106" rx="3" fill="#fdf3e3" stroke="#5c4a1a" stroke-width="2.5"/>
+    <text x="320" y="747" text-anchor="middle" font-size="12" font-weight="700" fill="#5c4a1a">Power Dynamics</text>
+    <text x="450" y="747" text-anchor="middle" font-size="8" fill="#5c4a1a" font-style="italic">(Distributive Justice)</text>
+    <text x="218" y="766" font-size="9.5" fill="#444">• LMIC vs. High-Income Countries</text>
+    <text x="218" y="782" font-size="9.5" fill="#444">• Research participants vs. Researchers</text>
+    <text x="218" y="798" font-size="9.5" fill="#444">• Institutional imbalances</text>
+    <text x="218" y="814" font-size="9.5" fill="#444">• Data ownership &amp; commercialisation</text>
+    <text x="218" y="828" font-size="9.5" fill="#444">• Risk of re-identification &amp; inequity</text>
 
     <!-- Community Engagement → Power Dynamics -->
-    <line x1="428" y1="586" x2="428" y2="612" stroke="#5c4a1a" stroke-width="2.5" marker-end="url(#arr-brown)"/>
+    <line x1="365" y1="690" x2="365" y2="724" stroke="#5c4a1a" stroke-width="2.5" marker-end="url(#a-brn)"/>
 
-    <!-- Power Dynamics → Outcome (right curved) -->
-    <path d="M 618 663 Q 660 663 679 500" stroke="#5c4a1a" stroke-width="2.5" fill="none" marker-end="url(#arr-brown)"/>
+    <!-- Power Dynamics → Outcome (clean horizontal, no crossing) -->
+    <line x1="530" y1="776" x2="548" y2="776" stroke="#5c4a1a" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#a-brn)"/>
+    <!-- vertical connector from Outcome bottom to Power Dynamics level -->
+    <line x1="730" y1="576" x2="730" y2="776" stroke="#5c4a1a" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="730" y1="776" x2="732" y2="776" stroke="#5c4a1a" stroke-width="2" stroke-dasharray="5,3"/>
 
-    <!-- Training → Power Dynamics (left curved) -->
-    <path d="M 93 468 Q 93 663 236 663" stroke="#2c2c2c" stroke-width="2" fill="none" marker-end="url(#arr-dark)" stroke-dasharray="5,3"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- GUIDELINES  y=738                                      -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="10" y="738" width="836" height="48" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="2"/>
-    <text x="428" y="758" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Institutional, National and International Guidelines, Policies, and Laws</text>
-    <text x="428" y="776" text-anchor="middle" font-size="9" fill="#666" font-style="italic">Govern all stakeholder relationships and data sharing at every level</text>
+    <!-- ════════════════════════════════════════════════
+         ROW 7 — GUIDELINES  y=868
+         ════════════════════════════════════════════════ -->
+
+    <rect x="10" y="868" width="900" height="50" rx="3" fill="#fff" stroke="#2c2c2c" stroke-width="2"/>
+    <text x="460" y="889" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Institutional, National and International Guidelines, Policies, and Laws</text>
+    <text x="460" y="908" text-anchor="middle" font-size="9" fill="#666" font-style="italic">Govern all stakeholder relationships and data sharing at every level</text>
 
     <!-- Power Dynamics → Guidelines -->
-    <line x1="428" y1="712" x2="428" y2="736" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
-    <!-- Guidelines ← left feedback -->
-    <path d="M 93 738 Q 35 738 35 663 Q 35 200 93 178" stroke="#2c2c2c" stroke-width="2" fill="none" marker-end="url(#arr-dark)" stroke-dasharray="5,4" opacity="0.5"/>
-    <!-- Guidelines ← right feedback -->
-    <path d="M 764 738 Q 830 738 830 663 Q 830 200 764 178" stroke="#5c4a1a" stroke-width="2" fill="none" marker-end="url(#arr-brown)" stroke-dasharray="5,4" opacity="0.5"/>
+    <line x1="365" y1="832" x2="365" y2="866" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- LEVELS BAR  y=810                                      -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <rect x="10" y="810" width="836" height="46" rx="3" fill="#e8ecf0" stroke="#1a1a1a" stroke-width="2.5"/>
-    <text x="428" y="830" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a" letter-spacing="0.5">LEVELS: INDIVIDUAL · INSTITUTIONAL · NATIONAL · INTERNATIONAL</text>
-    <text x="428" y="847" text-anchor="middle" font-size="8.5" fill="#555" font-style="italic">e.g. bilateral sharing, inter-institutional, global repositories (EGA, dbGaP)</text>
+    <!-- Training → Guidelines (straight down left) -->
+    <line x1="98" y1="540" x2="98" y2="866" stroke="#2c2c2c" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#a-blk)" opacity="0.45"/>
+
+    <!-- Outcome → Guidelines (straight down right) -->
+    <line x1="730" y1="576" x2="730" y2="866" stroke="#5c4a1a" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#a-brn)" opacity="0.45"/>
+
+
+    <!-- ════════════════════════════════════════════════
+         ROW 8 — LEVELS BAR  y=926
+         ════════════════════════════════════════════════ -->
+
+    <rect x="10" y="926" width="900" height="40" rx="3" fill="#e4eaf0" stroke="#1a1a1a" stroke-width="2.5"/>
+    <text x="460" y="942" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a" letter-spacing="0.4">LEVELS: INDIVIDUAL · INSTITUTIONAL · NATIONAL · INTERNATIONAL</text>
+    <text x="460" y="958" text-anchor="middle" font-size="8.5" fill="#555" font-style="italic">e.g. bilateral sharing, inter-institutional, global repositories (EGA, dbGaP)</text>
 
     <!-- Guidelines → Levels -->
-    <line x1="428" y1="786" x2="428" y2="808" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <line x1="460" y1="918" x2="460" y2="924" stroke="#2c2c2c" stroke-width="2.5" marker-end="url(#a-blk)"/>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- FEEDBACK LOOP LABELS                                   -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <text x="20" y="568" font-size="8" fill="#1a3a5c" font-style="italic" transform="rotate(-90,20,568)">Feedback loop (GST)</text>
-    <text x="842" y="550" font-size="8" fill="#5c4a1a" font-style="italic" transform="rotate(90,842,550)">Feedback loop (Dist. Justice)</text>
+
+    <!-- ════════════════════════════════════════════════
+         FEEDBACK LOOPS — far left and far right edges only
+         (never cross the diagram interior)
+         ════════════════════════════════════════════════ -->
+
+    <!-- LEFT feedback loop: Guidelines bottom-left → GST top-left (hugs the left edge) -->
+    <path d="M 10 893 Q -18 893 -18 500 Q -18 100 10 50" stroke="#1a3a5c" stroke-width="1.8" fill="none" stroke-dasharray="6,4" marker-end="url(#a-blu)" opacity="0.6"/>
+    <text transform="rotate(-90,-32,500)" x="-32" y="505" text-anchor="middle" font-size="8" fill="#1a3a5c" font-style="italic" opacity="0.8">Feedback loop (GST)</text>
+
+    <!-- RIGHT feedback loop: Guidelines bottom-right → DJ top-right (hugs the right edge) -->
+    <path d="M 910 893 Q 938 893 938 500 Q 938 100 910 50" stroke="#5c4a1a" stroke-width="1.8" fill="none" stroke-dasharray="6,4" marker-end="url(#a-brn)" opacity="0.6"/>
+    <text transform="rotate(90,950,500)" x="950" y="505" text-anchor="middle" font-size="8" fill="#5c4a1a" font-style="italic" opacity="0.8">Feedback loop (Dist. Justice)</text>
 
   </svg>
 
@@ -334,26 +340,34 @@
   <div class="legend">
     <div class="li">
       <svg width="22" height="14"><rect width="22" height="14" fill="#1a3a5c"/></svg>
-      <span>Theoretical framework pillar</span>
+      <span>General Systems Theory</span>
+    </div>
+    <div class="li">
+      <svg width="22" height="14"><rect width="22" height="14" fill="#1a6640"/></svg>
+      <span>Principlism</span>
+    </div>
+    <div class="li">
+      <svg width="22" height="14"><rect width="22" height="14" fill="#5c4a1a"/></svg>
+      <span>Distributive Justice</span>
     </div>
     <div class="li">
       <svg width="22" height="14"><rect width="22" height="14" fill="#fff8f5" stroke="#b5451b" stroke-width="2"/></svg>
-      <span>Newly added node (supervisor critique)</span>
+      <span>Newly added node</span>
     </div>
     <div class="li">
       <svg width="22" height="14"><rect width="22" height="14" fill="#f0f5fa" stroke="#1a3a5c" stroke-width="2"/></svg>
-      <span>Outcome node</span>
+      <span>Outcome</span>
     </div>
     <div class="li">
-      <svg width="22" height="14"><rect width="22" height="14" fill="#fdf5e8" stroke="#5c4a1a" stroke-width="2"/></svg>
+      <svg width="22" height="14"><rect width="22" height="14" fill="#fdf3e3" stroke="#5c4a1a" stroke-width="2"/></svg>
       <span>Distributive Justice node</span>
     </div>
     <div class="li">
       <svg width="22" height="14"><rect width="22" height="14" fill="#fff" stroke="#2c2c2c" stroke-width="2"/></svg>
-      <span>Original node (retained/expanded)</span>
+      <span>Original node</span>
     </div>
-    <div class="li" style="margin-left:auto; font-style:italic; color:#888; font-size:9.5px;">
-      Dashed arrows = feedback loops &amp; theory-to-node mappings
+    <div class="li" style="margin-left:auto; font-size:9.5px; color:#888; font-style:italic;">
+      Dashed lines = theory-to-node mappings &amp; feedback loops &nbsp;|&nbsp; Double arrows = bidirectional flow
     </div>
   </div>
 
